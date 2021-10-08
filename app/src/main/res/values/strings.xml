@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HiltRobolectricIssue</string>
+    <string name="title_dynamicfeature">DFM</string>
+</resources>
