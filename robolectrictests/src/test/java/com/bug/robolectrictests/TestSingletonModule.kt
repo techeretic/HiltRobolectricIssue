@@ -19,12 +19,13 @@ object TestSingletonModule {
     fun provideSingletonDependency(): SingletonInterface {
         return object : SingletonInterface {
             override val someValue: Int
-                get() = 100
+                get() = TEST_VALUE
 
             override fun doSomething(context: Context) {
                 // No Op
             }
         }
     }
-
 }
+
+const val TEST_VALUE = 100

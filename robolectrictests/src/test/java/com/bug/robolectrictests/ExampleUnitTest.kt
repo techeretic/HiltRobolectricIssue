@@ -1,6 +1,8 @@
 package com.bug.robolectrictests
 
 import com.bug.hiltrobolectricissue.dependencies.SingletonInterface
+import com.bug.hiltrobolectricissue.di.DynamicFeatureDependencies
+import dagger.hilt.EntryPoints
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -22,13 +24,13 @@ class ExampleUnitTest {
     fun setUp() {
         DaggerRobolectricDynamicFeatureComponent.factory()
             .create(
-                TestApplication.getInstance().dynamicFeatureDependencies
+                EntryPoints.get(TestApplication.getInstance(), DynamicFeatureDependencies::class.java)
             )
             .inject(this)
     }
 
     @Test
-    fun addition_isCorrect() {
-        assertEquals(singletonInterface.someValue, 10)
+    fun singletonIsUsingTestImplementation() {
+        assertEquals(singletonInterface.someValue, TEST_VALUE)
     }
 }
