@@ -12,7 +12,7 @@ open class TestRobolectricTestRunner(cls: Class<*>) : RobolectricTestRunner(cls)
         return Config.Builder()
             // This is a little hokey but it allows us to set our Robolectric SDK version in a single place.
             .setSdk(Config.Builder().setSdk(28).build().sdk[0])
-            .setApplication(TestApplication::class.java)
+            .setApplication(CustomApplication_Application::class.java)
             .build()
     }
     override fun get(): Config = Config.Builder().setSdk(28).build()

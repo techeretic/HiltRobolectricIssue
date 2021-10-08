@@ -9,16 +9,9 @@ import com.bug.hiltrobolectricissue.di.components.EarlyInitComponent
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
-@HiltAndroidApp
 open class MainApplication : Application() {
 
     lateinit var earlyInitComponent: EarlyInitComponent
-
-    @Inject
-    lateinit var earlyInitDependency: EarlyInitDependency
-
-    @Inject
-    lateinit var singletonDependency: SingletonInterface
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
